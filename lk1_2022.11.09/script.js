@@ -41,9 +41,16 @@ let newArr = arr.map(function(el) {
 console.log(newArr);
 
 
+let buyBread = new Promise(function(resolve, reject) {
+	let n = Math.random(); // 0 - 1
+	if (n > 0.3) {
+		resolve("Хлеб куплен"); // асинхронный код выполнился успешно
+	} else {
+		reject("Брат оставил семью без ужина"); // асинхронный код потерялся
+	}
+});
 
-
-
-
-
-
+// console.log(buyBread);
+buyBread
+	.then(result => console.log(result))
+	.catch(err => console.log(err))
