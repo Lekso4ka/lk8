@@ -98,23 +98,3 @@ setNewUser(male)
 			console.log(`Пользователь ${user.name} с id ${user.id} в возрасте ${user.age} лет`);
 		})
 	})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
