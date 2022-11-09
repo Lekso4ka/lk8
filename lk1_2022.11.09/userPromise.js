@@ -14,7 +14,7 @@ const getAllUsers = () => {
 	return new Promise(resolve => {
 		setTimeout(() => {
 			resolve(DB.users);
-		}, getNumber(1000));
+		}, getNumber(5000));
 	})
 }
 
@@ -33,7 +33,7 @@ const setNewUser = (data) => {
 			}
 			DB.users.push(user);
 			resolve(user);
-		}, getNumber(1000))
+		}, getNumber(5000))
 	})
 }
 
@@ -60,7 +60,7 @@ const updUser = (id, data) => {
 				return user;
 			});
 			resolve(update);
-		}, getNumber(1000));
+		}, getNumber(5000));
 	})
 }
 
@@ -70,5 +70,51 @@ const updUser = (id, data) => {
 // 	.then(u => {
 // 		console.log(u);
 // 	})
+
+const male = {
+	name: "Grigoriy",
+	age: 20
+}
+const female = {
+	name: "Stasy",
+	age: 10
+}
+
+setNewUser(male)
+	.then(um => {
+		console.log("Добавлен пользователь", um);
+		return setNewUser(female)
+	})
+	.then(uf => {
+		console.log("Добавлен пользователь", uf);
+		return updUser(uf.id, {age: 18})
+	}) 
+	.then(upd => {
+		console.log("Изменен пользователь", upd)
+		return getAllUsers()
+	})
+	.then(u => {
+		u.forEach(user => {
+			console.log(`Пользователь ${user.name} с id ${user.id} в возрасте ${user.age} лет`);
+		})
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
