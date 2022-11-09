@@ -31,6 +31,14 @@ let third = function() {
 third(); // third => second => first => console.log
 
 
+let arr = [1,2,3];
+let newArr = arr.map(function(el) {
+	if (el % 2 === 0) {
+		return `<div>${el}</div>`
+	}
+	return el;
+})
+console.log(newArr);
 
 
 
